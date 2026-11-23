@@ -1,0 +1,676 @@
+/* ==============================
+   1. PARAMÈTRES GÉNÉRAUX
+============================== */
+
+:root {
+    --dark: #201b18;
+    --brown: #72513c;
+    --gold: #bd9564;
+    --cream: #f7f3ed;
+    --white: #ffffff;
+    --text: #5f5a55;
+    --border: #e8e0d6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    line-height: 1.7;
+}
+
+.container {
+    width: 88%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.section-padding {
+    padding: 110px 0;
+}
+
+.section-tag {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: clamp(32px, 4vw, 48px);
+}
+
+p {
+    color: var(--text);
+}
+
+/* ==============================
+   2. BOUTONS
+============================== */
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 25px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #9d7549;
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border-color: rgba(255,255,255,0.7);
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--dark);
+}
+
+.btn-dark {
+    background: var(--dark);
+    color: white;
+}
+
+.btn-dark:hover {
+    background: var(--brown);
+    transform: translateY(-3px);
+}
+
+.text-link {
+    color: var(--brown);
+    font-weight: 700;
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* ==============================
+   3. HEADER
+============================== */
+
+.header {
+    height: 88px;
+    background: white;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 20px rgba(0,0,0,0.04);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    background: var(--dark);
+    color: var(--gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Playfair Display", serif;
+    font-size: 26px;
+}
+
+.logo strong {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.logo small {
+    display: block;
+    color: var(--brown);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navigation a {
+    font-size: 12px;
+    font-weight: 600;
+    color: #514a44;
+    transition: 0.3s;
+}
+
+.navigation a:hover {
+    color: var(--gold);
+}
+
+.nav-button {
+    background: var(--dark);
+    color: white;
+    padding: 13px 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* ==============================
+   4. ACCUEIL - BIBLIOTHÈQUE
+============================== */
+
+.hero {
+    min-height: 650px;
+    background:
+        linear-gradient(90deg, rgba(27,22,19,0.97), rgba(27,22,19,0.77)),
+        url("bibliotheque.jpg") center/cover no-repeat;
+    color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(27,22,19,0.55), rgba(27,22,19,0.15));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 80px;
+    padding: 80px 0;
+}
+
+.hero-text h1 {
+    font-size: clamp(45px, 5.5vw, 72px);
+    max-width: 700px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.hero-text h1 span {
+    color: var(--gold);
+}
+
+.hero-text p {
+    color: #d4cdc6;
+    max-width: 560px;
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+
+.author-frame {
+    width: 330px;
+    padding: 12px;
+    border: 1px solid rgba(189,149,100,0.6);
+    background: rgba(255,255,255,0.04);
+}
+
+.author-placeholder {
+    height: 390px;
+    background: linear-gradient(145deg, #68513f, #28211c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.author-placeholder span,
+.library-placeholder span {
+    color: rgba(255,255,255,0.65);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.author-caption {
+    padding: 18px 5px 8px;
+}
+
+.author-caption span {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.author-caption strong {
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-size: 17px;
+    margin-top: 5px;
+    color: white;
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 6%;
+    right: 6%;
+    display: flex;
+    justify-content: space-between;
+    color: #bdb3a8;
+    font-size: 9px;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+/* ==============================
+   5. INTRODUCTION
+============================== */
+
+.intro {
+    background: var(--cream);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.intro-grid h2 {
+    max-width: 500px;
+}
+
+.intro-description p {
+    margin-bottom: 18px;
+    font-size: 15px;
+}
+
+/* ==============================
+   6. BIOGRAPHIE
+============================== */
+
+.biography-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+    align-items: center;
+}
+
+.biography-image {
+    position: relative;
+}
+
+.library-placeholder {
+    height: 500px;
+    background: linear-gradient(135deg, #30251e, #896b4f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-note {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--gold);
+    color: white;
+    padding: 20px 25px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.biography-content h2 {
+    margin-bottom: 25px;
+}
+
+.biography-content p {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.biography-content .btn {
+    margin-top: 15px;
+}
+
+/* ==============================
+   7. LIVRES - PETITS BLOCS
+============================== */
+
+.books {
+    background: #fff;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    margin-top: 12px;
+    max-width: 600px;
+}
+
+#livres {
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.book-card {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    background: white;
+    transition: transform 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-cover {
+    height: 210px;
+    overflow: hidden;
+    background: #eee;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.book-card:hover .book-cover img {
+    transform: scale(1.05);
+}
+
+.book-info {
+    padding: 12px 14px 14px;
+}
+
+.book-info h3 {
+    font-size: 15px;
+    margin: 6px 0;
+    line-height: 1.3;
+    color: var(--dark);
+}
+
+.book-info p {
+    font-size: 12.5px;
+    line-height: 1.45;
+    margin-bottom: 8px;
+}
+
+.book-category {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--brown);
+    background: var(--cream);
+    padding: 3px 8px;
+    border-radius: 20px;
+}
+
+/* ==============================
+   8. CITATIONS
+============================== */
+
+.quotes {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+}
+
+.quotes-container {
+    max-width: 900px;
+}
+
+.quote-mark {
+    color: var(--gold);
+    font-family: "Playfair Display", serif;
+    font-size: 100px;
+    height: 90px;
+    line-height: 1;
+}
+
+.quotes h2 {
+    font-size: clamp(30px, 4vw, 46px);
+    margin-bottom: 15px;
+    color: white;
+}
+
+.quotes h2 + p,
+.quote-author {
+    color: #c4b9ae;
+    font-size: 13px;
+}
+
+.quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 35px;
+    text-align: left;
+}
+
+.quote-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.quote-card p {
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.quote-card span {
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+/* ==============================
+   9. FOOTER
+============================== */
+
+.footer {
+    background: #171210;
+    color: #c4b9ae;
+    padding: 60px 0 30px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.footer-logo strong,
+.footer-logo small {
+    color: white;
+}
+
+.footer p {
+    color: #c4b9ae;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    font-size: 12px;
+    font-weight: 600;
+    color: #e8e0d6;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    font-size: 12px;
+    color: #8a7f76;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    width: 100%;
+}
+
+/* ==============================
+   10. RESPONSIVE TABLETTE
+============================== */
+
+@media (max-width: 1000px) {
+    .navigation { gap: 15px; }
+    .navigation a { font-size: 11px; }
+    .hero-content { gap: 35px; }
+    .intro-grid, .biography-grid { gap: 50px; }
+    .books-grid { grid-template-columns: repeat(3, 1fr); }
+    .quotes-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ==============================
+   11. RESPONSIVE MOBILE
+============================== */
+
+@media (max-width: 750px) {
+    .container { width: 90%; }
+    .section-padding { padding: 75px 0; }
+    .header { height: auto; padding: 15px 0; }
+    .nav-container { flex-wrap: wrap; gap: 18px; }
+    .navigation {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        padding: 10px 0 5px;
+        gap: 22px;
+    }
+    .navigation a { white-space: nowrap; }
+    .nav-button { font-size: 10px; padding: 10px 13px; }
+
+    .hero { min-height: auto; }
+    .hero-content { grid-template-columns: 1fr; padding: 60px 0 75px; gap: 45px; }
+    .hero-text h1 { font-size: 43px; }
+    .hero-image { justify-content: flex-start; }
+    .author-frame { width: 100%; max-width: 330px; }
+    .author-placeholder { height: 330px; }
+    .hero-bottom { display: none; }
+
+    .intro-grid, .biography-grid { grid-template-columns: 1fr; gap: 40px; }
+    .biography-image { margin-right: 15px; }
+    .library-placeholder { height: 350px; }
+    .image-note { right: -10px; }
+
+    .section-heading { flex-direction: column; align-items: flex-start; }
+
+    /* LIVRES SUR MOBILE : 2 PAR LIGNE, PETITS */
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+    .book-cover { height: 160px !important; }
+    .book-info h3 { font-size: 13px !important; }
+    .book-info p { display: none; }
+
+    .quotes-grid { grid-template-columns: 1fr; }
+    .footer-links { gap: 18px; }
+}
+
+/* ==============================
+   12. PETITS ÉCRANS
+============================== */
+
+@media (max-width: 400px) {
+    .logo strong { font-size: 11px; }
+    .logo small { font-size: 8px; }
+    .hero-text h1 { font-size: 36px; }
+    .hero-buttons { flex-direction: column; }
+    .hero-buttons .btn { width: 100%; }
+}
