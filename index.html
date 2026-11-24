@@ -1,205 +1,679 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Ernest Foua de Saint Sauveur | Écrivain</title>
     <meta name="description" content="Découvrez l'univers littéraire d'Ernest Foua de Saint Sauveur.">
+
     <link rel="stylesheet" href="style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ===== CORRECTION ACCUEIL - BIBLIOTHÈQUE ===== */
-        .hero{
-            position:relative;
-            background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop');
-            background-size:cover;
-            background-position:center;
-            background-repeat:no-repeat;
-            min-height:92vh;
-            color:#fff;
-        }
-        .hero-overlay{
-            position:absolute; inset:0;
-            background:linear-gradient(90deg, rgba(10,15,30,.92) 0%, rgba(10,15,30,.75) 45%, rgba(10,15,30,.35) 100%);
-            z-index:1;
-        }
-        .hero-content,.hero-bottom{ position:relative; z-index:2; }
-        .hero-text h1,.hero-text p{ color:#fff; }
-        .hero-text h1 span{ color:#e8c97a; }
-        .hero-bottom{ color:rgba(255,255,255,.85); border-top:1px solid rgba(255,255,255,.2); }
 
-        /* ===== CORRECTION LIVRES PLUS PETITS + BAS RÉDUIT ===== */
-        #livres{ padding-top:40px !important; padding-bottom:30px !important; }
-        .books-grid{
-            display:grid !important;
-            grid-template-columns:repeat(4,1fr) !important;
-            gap:18px !important; margin-top:25px !important;
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== ACCUEIL - BIBLIOTHÈQUE ===== */
+
+        .hero {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 92vh;
+            color: #fff;
         }
-        .book-card{ max-width:260px; width:100%; margin:0 auto; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.08); }
-        .book-cover{ height:210px !important; aspect-ratio:auto !important; overflow:hidden; }
-        .book-cover img{ width:100%; height:100%; object-fit:cover; display:block; }
-        .book-info{ padding:12px 14px 14px !important; }
-        .book-info h3{ font-size:15px !important; margin:6px 0 !important; line-height:1.3; }
-        .book-info p{ font-size:12.5px !important; line-height:1.45 !important; margin-bottom:8px !important; }
-        .book-category{ font-size:10px !important; }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(10,15,30,.92) 0%, rgba(10,15,30,.75) 45%, rgba(10,15,30,.35) 100%);
+            z-index: 1;
+        }
+
+        .hero-content,
+        .hero-bottom {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1,
+        .hero-text p {
+            color: #fff;
+        }
+
+        .hero-text h1 span {
+            color: #e8c97a;
+        }
+
+        .hero-bottom {
+            color: rgba(255,255,255,.85);
+            border-top: 1px solid rgba(255,255,255,.2);
+        }
+
+        /* ===== BIBLIOGRAPHIE ===== */
+
+        #bibliographie {
+            padding-top: 40px !important;
+            padding-bottom: 30px !important;
+        }
+
+        .books-grid {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 18px !important;
+            margin-top: 25px !important;
+        }
+
+        .book-card {
+            max-width: 260px;
+            width: 100%;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,.08);
+        }
+
+        .book-cover {
+            height: 210px !important;
+            aspect-ratio: auto !important;
+            overflow: hidden;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .book-info {
+            padding: 12px 14px 14px !important;
+        }
+
+        .book-info h3 {
+            font-size: 15px !important;
+            margin: 6px 0 !important;
+            line-height: 1.3;
+        }
+
+        .book-info p {
+            font-size: 12.5px !important;
+            line-height: 1.45 !important;
+            margin-bottom: 8px !important;
+        }
+
+        .book-category {
+            font-size: 10px !important;
+        }
 
         /* ===== CITATIONS ===== */
-        .quotes-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:28px; text-align:left; }
-        .quote-card{ background:#fff; border-radius:14px; padding:22px; box-shadow:0 4px 14px rgba(0,0,0,.07); }
-        .quote-card p{ font-family:'Playfair Display',serif; font-size:17px; line-height:1.5; margin:0 0 12px; }
-        .quote-card span{ font-size:12px; letter-spacing:1px; font-weight:700; color:#888; }
 
-        @media(max-width:768px){
-            .books-grid{ grid-template-columns:repeat(2,1fr) !important; gap:12px !important; }
-            .book-cover{ height:160px !important; }
-            .book-info p{ display:none; }
-            .quotes-grid{ grid-template-columns:1fr; }
-            .hero{ background-position:center; }
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 28px;
+            text-align: left;
         }
+
+        .quote-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: 0 4px 14px rgba(0,0,0,.07);
+        }
+
+        .quote-card p {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            line-height: 1.5;
+            margin: 0 0 12px;
+        }
+
+        .quote-card span {
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: #888;
+        }
+
+        /* ===== RESPONSIVE ===== */
+
+        @media(max-width:768px) {
+
+            .books-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+
+            .book-cover {
+                height: 160px !important;
+            }
+
+            .book-info p {
+                display: none;
+            }
+
+            .quotes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                background-position: center;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
     <!-- NAVIGATION -->
+
     <header class="header">
+
         <div class="container nav-container">
+
             <a href="#accueil" class="logo">
                 <span class="logo-icon">E</span>
-                <span><strong>ERNEST FOUA</strong><small>DE SAINT SAUVEUR</small></span>
+                <span>
+                    <strong>ERNEST FOUA</strong>
+                    <small>DE SAINT SAUVEUR</small>
+                </span>
             </a>
+
             <nav class="navigation">
+
                 <a href="#accueil">ACCUEIL</a>
+
                 <a href="#biographie">BIOGRAPHIE</a>
-                <a href="#livres">BIBLIOGRAPHIE</a>
+
+                <a href="#bibliographie">BIBLIOGRAPHIE</a>
+
                 <a href="#citations">CITATIONS</a>
+
             </nav>
-            <a href="#livres" class="nav-button">Découvrir ses livres</a>
+
+            <a href="#bibliographie" class="nav-button">
+                Découvrir ses livres
+            </a>
+
         </div>
+
     </header>
 
+
     <!-- ACCUEIL -->
+
     <section class="hero" id="accueil">
+
         <div class="hero-overlay"></div>
+
         <div class="container hero-content">
+
             <div class="hero-text">
-                <span class="section-tag">LITTÉRATURE • CULTURE • TRANSMISSION</span>
-                <h1>Les mots ont le pouvoir de <span>changer le monde.</span></h1>
-                <p>Bienvenue dans l'univers littéraire d'Ernest Foua de Saint Sauveur. Découvrez son parcours, ses réflexions et ses œuvres qui invitent à penser, apprendre et regarder le monde autrement.</p>
+
+                <span class="section-tag">
+                    LITTÉRATURE • CULTURE • TRANSMISSION
+                </span>
+
+                <h1>
+                    Les mots ont le pouvoir de
+                    <span>changer le monde.</span>
+                </h1>
+
+                <p>
+                    Bienvenue dans l'univers littéraire d'Ernest Foua de Saint Sauveur.
+                    Découvrez son parcours, ses réflexions et ses œuvres qui invitent
+                    à penser, apprendre et regarder le monde autrement.
+                </p>
+
                 <div class="hero-buttons">
-                    <a href="#BIBLIOGRAPHIE" class="btn btn-primary">Découvrir ses livres</a>
-                    <a href="#biographie" class="btn btn-outline">Son parcours</a>
+
+                    <a href="#bibliographie" class="btn btn-primary">
+                        Découvrir ses livres
+                    </a>
+
+                    <a href="#biographie" class="btn btn-outline">
+                        Son parcours
+                    </a>
+
                 </div>
+
             </div>
+
             <div class="hero-image">
+
                 <div class="author-frame">
-                    <div class="author-placeholder"><span> <img src="ernest.png" alt="photo de Ernest "></span></div>
-                    <div class="author-caption"><span>ÉCRIVAIN</span><strong>Ernest Foua de Saint Sauveur</strong></div>
+
+                    <div class="author-placeholder">
+                        <span>
+                            <img src="ernest.png" alt="Photo d'Ernest Foua de Saint Sauveur">
+                        </span>
+                    </div>
+
+                    <div class="author-caption">
+                        <span>ÉCRIVAIN</span>
+                        <strong>Ernest Foua de Saint Sauveur</strong>
+                    </div>
+
                 </div>
+
             </div>
+
         </div>
+
         <div class="hero-bottom">
             <span></span>
             <span></span>
         </div>
+
     </section>
 
-    <!-- PRESENTATION -->
+
+    <!-- PRÉSENTATION -->
+
     <section class="intro section-padding">
+
         <div class="container intro-grid">
+
             <div>
-                <span class="section-tag">BIENVENUE DANS SON UNIVERS</span>
+
+                <span class="section-tag">
+                    BIENVENUE DANS SON UNIVERS
+                </span>
+
                 <h2>Une plume, une vision, un héritage.</h2>
+
             </div>
+
             <div class="intro-description">
-                <p>À travers ses écrits, Ernest Foua de Saint Sauveur partage sa vision du monde, ses expériences et ses réflexions sur la société.</p>
-                <p>Ce site vous invite à explorer son univers littéraire, à découvrir ses publications et à mieux connaître l'homme derrière les œuvres.</p>
-                <a href="#biographie" class="text-link">En savoir plus sur l'auteur →</a>
+
+                <p>
+                    À travers ses écrits, Ernest Foua de Saint Sauveur
+                    partage sa vision du monde, ses expériences et ses
+                    réflexions sur la société.
+                </p>
+
+                <p>
+                    Ce site vous invite à explorer son univers littéraire,
+                    à découvrir ses publications et à mieux connaître
+                    l'homme derrière les œuvres.
+                </p>
+
+                <a href="#biographie" class="text-link">
+                    En savoir plus sur l'auteur →
+                </a>
+
             </div>
+
         </div>
+
     </section>
+
 
     <!-- BIOGRAPHIE -->
+
     <section class="biography section-padding" id="biographie">
+
         <div class="container biography-grid">
+
             <div class="biography-image">
-                <div class="library-placeholder"><span>PHOTO / UNIVERS DE L'ÉCRIVAIN</span></div>
-                <div class="image-note">LE PARCOURS D'UN HOMME DE LETTRES</div>
-            </div>
-            <div class="biography-content">
-                <span class="section-tag">QUI EST-IL ?</span>
-                <h2>Un parcours au service des mots et des idées.</h2>
-                <p>Ernest Foua de Saint Sauveur est un écrivain dont l'univers s'exprime à travers plusieurs ouvrages. Son parcours, ses expériences et ses engagements constituent une source d'inspiration pour ses écrits.</p>
-                <p>À travers cette rubrique, découvrez les grandes étapes de sa vie, son cheminement intellectuel, ses expériences et les événements qui ont marqué son parcours.</p>
-                <a href="#BIBLIOGRAPHIE" class="btn btn-dark">Découvrir ses œuvres</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- LIVRES -->
-    <section class="books section-padding" id="livres">
-        <div class="container">
-            <div class="section-heading">
-                <div>
-                    <span class="section-tag">SON UNIVERS LITTÉRAIRE</span>
-                    <h2>À la découverte de ses œuvres.</h2>
-                    <p>Chaque livre est une invitation à découvrir une nouvelle idée, une réflexion ou une histoire.</p>
+                <div class="library-placeholder">
+                    <span>PHOTO / UNIVERS DE L'ÉCRIVAIN</span>
                 </div>
+
+                <div class="image-note">
+                    LE PARCOURS D'UN HOMME DE LETTRES
+                </div>
+
             </div>
-            <div class="books-grid">
-                <article class="book-card"><div class="book-cover"><img src="1.jpeg" alt="Livre 1"></div><div class="book-info"><span class="book-category">LITTÉRATURE</span><h3>République du Zouglou 1</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="2.jpeg" alt="Livre 2"></div><div class="book-info"><span class="book-category">RÉFLEXION</span><h3>République du Zouglou 2</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="3.jpeg" alt="Livre 3"></div><div class="book-info"><span class="book-category">SOCIÉTÉ</span><h3>Mon adrobale sphinx</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="4.jpeg" alt="Livre 4"></div><div class="book-info"><span class="book-category">LITTÉRATURE</span><h3>Prison d'en France</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="5.jpeg" alt="Livre 5"></div><div class="book-info"><span class="book-category">RÉFLEXION</span><h3>A l'Enseigne du Père François Brousse</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="6.jpeg" alt="Livre 6"></div><div class="book-info"><span class="book-category">SOCIÉTÉ</span><h3>Au fil de mes lectures amies</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="7.jpeg" alt="Livre 7"></div><div class="book-info"><span class="book-category">LITTÉRATURE</span><h3>échos de la République du Zouglou (tome 1)</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="8.jpeg" alt="Livre 8"></div><div class="book-info"><span class="book-category">RÉFLEXION</span><h3>Les Matins Orphélins</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="9.jpeg" alt="Livre 9"></div><div class="book-info"><span class="book-category">SOCIÉTÉ</span><h3>Nous sommes tous des Samba Diallo</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="10.jpeg" alt="Livre 10"></div><div class="book-info"><span class="book-category">LITTÉRATURE</span><h3> L'antiChambre du Royaume</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="11.jpeg" alt="Livre 11"></div><div class="book-info"><span class="book-category">RÉFLEXION</span><h3>Dieu n'est pas notre parent</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="12.jpeg" alt="Livre 12"></div><div class="book-info"><span class="book-category">SOCIÉTÉ</span><h3>Traditions, Racines et Ancestralités (tome 1)</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="13.jpeg" alt="Livre 13"></div><div class="book-info"><span class="book-category">LITTÉRATURE</span><h3>Traditions, Racines et Ancestralités (tome 2)</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="14.jpeg" alt="Livre 14"></div><div class="book-info"><span class="book-category">RÉFLEXION</span><h3>L'EMPIRE DU ROI EGO</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="15.jpeg" alt="Livre 15"></div><div class="book-info"><span class="book-category">SOCIÉTÉ</span><h3>Grilleurs d'arachides</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="16.jpeg" alt="Livre 16"></div><div class="book-info"><span class="book-category">LITTÉRATURE</span><h3>Le Joker de Dieu</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
-                <article class="book-card"><div class="book-cover"><img src="17.jpeg" alt="Livre 17"></div><div class="book-info"><span class="book-category">RÉFLEXION</span><h3>Le sentier des rêves maudits</h3><p>Ajoutez ici le résumé de ce livre.</p></div></article>
+
+            <div class="biography-content">
+
+                <span class="section-tag">QUI EST-IL ?</span>
+
+                <h2>Un parcours au service des mots et des idées.</h2>
+
+                <p>
+                    Ernest Foua de Saint Sauveur est un écrivain dont
+                    l'univers s'exprime à travers plusieurs ouvrages.
+                    Son parcours, ses expériences et ses engagements
+                    constituent une source d'inspiration pour ses écrits.
+                </p>
+
+                <p>
+                    À travers cette rubrique, découvrez les grandes étapes
+                    de sa vie, son cheminement intellectuel, ses expériences
+                    et les événements qui ont marqué son parcours.
+                </p>
+
+                <a href="#bibliographie" class="btn btn-dark">
+                    Découvrir ses œuvres
+                </a>
+
             </div>
+
         </div>
+
     </section>
 
-    <!-- CITATIONS CORRIGÉES -->
-    <section class="quotes section-padding" id="citations">
-        <div class="container quotes-container" style="text-align:center;">
-            <span class="section-tag">PENSÉES & RÉFLEXIONS</span>
-            <div class="quote-mark">“</div>
-            <h2>Les grands Hommes font les grandes Batailles</h2>
-            <p class="quote-author">— Ernest Foua de Saint Sauveur</p>
-            <div class="quotes-grid">
-                <div class="quote-card"><p>« Lire, c'est ouvrir une porte sur le monde. Écrire, c'est laisser une trace pour ceux qui viendront. »</p><span>ERNEST FOUA DE SAINT SAUVEUR</span></div>
-                <div class="quote-card"><p>« La culture est le socle sur lequel se construit l'avenir d'un peuple. »</p><span>ERNEST FOUA DE SAINT SAUVEUR</span></div>
-                <div class="quote-card"><p>« Chaque livre est une lumière. Il éclaire, il guide, il transforme. »</p><span>ERNEST FOUA DE SAINT SAUVEUR</span></div>
+
+    <!-- BIBLIOGRAPHIE -->
+
+    <section class="books section-padding" id="bibliographie">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-tag">
+                        SON UNIVERS LITTÉRAIRE
+                    </span>
+
+                    <h2>À la découverte de ses œuvres.</h2>
+
+                    <p>
+                        Chaque livre est une invitation à découvrir une nouvelle
+                        idée, une réflexion ou une histoire.
+                    </p>
+
+                </div>
+
             </div>
+
+            <div class="books-grid">
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="1.jpeg" alt="République du Zouglou 1">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">LITTÉRATURE</span>
+                        <h3>République du Zouglou 1</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="2.jpeg" alt="République du Zouglou 2">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">RÉFLEXION</span>
+                        <h3>République du Zouglou 2</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="3.jpeg" alt="Mon adrobale sphinx">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">SOCIÉTÉ</span>
+                        <h3>Mon adrobale sphinx</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="4.jpeg" alt="Prison d'en France">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">LITTÉRATURE</span>
+                        <h3>Prison d'en France</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="5.jpeg" alt="À l'Enseigne du Père François Brousse">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">RÉFLEXION</span>
+                        <h3>A l'Enseigne du Père François Brousse</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="6.jpeg" alt="Au fil de mes lectures amies">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">SOCIÉTÉ</span>
+                        <h3>Au fil de mes lectures amies</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="7.jpeg" alt="Échos de la République du Zouglou">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">LITTÉRATURE</span>
+                        <h3>échos de la République du Zouglou (tome 1)</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="8.jpeg" alt="Les Matins Orphélins">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">RÉFLEXION</span>
+                        <h3>Les Matins Orphélins</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="9.jpeg" alt="Nous sommes tous des Samba Diallo">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">SOCIÉTÉ</span>
+                        <h3>Nous sommes tous des Samba Diallo</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="10.jpeg" alt="L'antiChambre du Royaume">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">LITTÉRATURE</span>
+                        <h3>L'antiChambre du Royaume</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="11.jpeg" alt="Dieu n'est pas notre parent">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">RÉFLEXION</span>
+                        <h3>Dieu n'est pas notre parent</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="12.jpeg" alt="Traditions, Racines et Ancestralités tome 1">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">SOCIÉTÉ</span>
+                        <h3>Traditions, Racines et Ancestralités (tome 1)</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="13.jpeg" alt="Traditions, Racines et Ancestralités tome 2">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">LITTÉRATURE</span>
+                        <h3>Traditions, Racines et Ancestralités (tome 2)</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="14.jpeg" alt="L'Empire du Roi Ego">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">RÉFLEXION</span>
+                        <h3>L'EMPIRE DU ROI EGO</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="15.jpeg" alt="Grilleurs d'arachides">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">SOCIÉTÉ</span>
+                        <h3>Grilleurs d'arachides</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="16.jpeg" alt="Le Joker de Dieu">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">LITTÉRATURE</span>
+                        <h3>Le Joker de Dieu</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="17.jpeg" alt="Le sentier des rêves maudits">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">RÉFLEXION</span>
+                        <h3>Le sentier des rêves maudits</h3>
+                        <p>Ajoutez ici le résumé de ce livre.</p>
+                    </div>
+                </article>
+
+            </div>
+
         </div>
+
     </section>
+
+
+    <!-- CITATIONS -->
+
+    <section class="quotes section-padding" id="citations">
+
+        <div class="container quotes-container" style="text-align:center;">
+
+            <span class="section-tag">
+                PENSÉES & RÉFLEXIONS
+            </span>
+
+            <div class="quote-mark">“</div>
+
+            <h2>Les grands Hommes font les grandes Batailles</h2>
+
+            <p class="quote-author">
+                — Ernest Foua de Saint Sauveur
+            </p>
+
+            <div class="quotes-grid">
+
+                <div class="quote-card">
+                    <p>
+                        « Lire, c'est ouvrir une porte sur le monde.
+                        Écrire, c'est laisser une trace pour ceux qui viendront. »
+                    </p>
+                    <span>ERNEST FOUA DE SAINT SAUVEUR</span>
+                </div>
+
+                <div class="quote-card">
+                    <p>
+                        « La culture est le socle sur lequel se construit l'avenir d'un peuple. »
+                    </p>
+                    <span>ERNEST FOUA DE SAINT SAUVEUR</span>
+                </div>
+
+                <div class="quote-card">
+                    <p>
+                        « Chaque livre est une lumière. Il éclaire, il guide, il transforme. »
+                    </p>
+                    <span>ERNEST FOUA DE SAINT SAUVEUR</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
 
     <!-- FOOTER -->
+
     <footer class="footer">
+
         <div class="container footer-content">
+
             <a href="#accueil" class="logo footer-logo">
+
                 <span class="logo-icon">E</span>
-                <span><strong>ERNEST FOUA</strong><small>DE SAINT SAUVEUR</small></span>
+
+                <span>
+                    <strong>ERNEST FOUA</strong>
+                    <small>DE SAINT SAUVEUR</small>
+                </span>
+
             </a>
-            <p>Un espace dédié aux livres, aux idées et à la culture.</p>
+
+            <p>
+                Un espace dédié aux livres, aux idées et à la culture.
+            </p>
+
             <div class="footer-links">
+
                 <a href="#accueil">Accueil</a>
+
                 <a href="#biographie">Biographie</a>
-                <a href="#livres">Livres</a>
+
+                <a href="#bibliographie">Bibliographie</a>
+
                 <a href="#citations">Citations</a>
+
             </div>
-            <div class="copyright">© 2026 Ernest Foua de Saint Sauveur. Tous droits réservés.</div>
+
+            <div class="copyright">
+                © 2026 Ernest Foua de Saint Sauveur. Tous droits réservés.
+            </div>
+
         </div>
+
     </footer>
 
 </body>
